@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "ru.potemkin.pumpumprototype"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ru.potemkin.pumpumprototype"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -66,4 +66,10 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //Lottie
+    implementation("com.airbnb.android:lottie-compose:6.0.0")
+
+    //NavBar
+    implementation("com.exyte:animated-navigation-bar:1.0.0")
 }
