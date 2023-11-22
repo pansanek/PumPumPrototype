@@ -7,7 +7,7 @@ sealed class Screen(
     object LearningHome : Screen(ROUTE_LEARNING_HOME)
     object Learning : Screen(ROUTE_LEARNING)
 
-    object Theme : Screen(ROUTE_THEME)
+    object Topic : Screen(ROUTE_TOPIC)
     object Theory : Screen(ROUTE_THEORY)
     object Exercise : Screen(ROUTE_EXERCISE)
     object Results : Screen(ROUTE_RESULTS)
@@ -19,7 +19,7 @@ sealed class Screen(
 
         const val ROUTE_LEARNING_HOME = "learning home"
         const val ROUTE_LEARNING = "learning"
-        const val ROUTE_THEME = "theme"
+        const val ROUTE_TOPIC = "topic"
         const val ROUTE_THEORY = "theory"
         const val ROUTE_EXERCISE = "exercise"
         const val ROUTE_RESULTS = "results"

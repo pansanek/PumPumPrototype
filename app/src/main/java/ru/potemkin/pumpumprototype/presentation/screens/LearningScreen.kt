@@ -29,16 +29,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.potemkin.pumpumprototype.R
-import ru.potemkin.pumpumprototype.ui.theme.PumPumPrototypeTheme
 import ru.potemkin.pumpumprototype.ui.theme.blue
 import ru.potemkin.pumpumprototype.ui.theme.darkBlue
 import ru.potemkin.pumpumprototype.ui.theme.white
 
 @Composable
-fun LearningScreen(todo: Nothing) {
+fun LearningScreen(
+    onTopicClickListener: Unit,
+    //onVariantClickListener: (Variant) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -69,7 +70,7 @@ fun LearningScreen(todo: Nothing) {
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
                     Button(
-                        onClick = {  },
+                        onClick = { onTopicClickListener },
                         colors = ButtonDefaults.buttonColors(darkBlue),
                     ) {
                         Text("Начать")
@@ -180,10 +181,3 @@ fun ColumnTopicItem(topicName: String) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LearningScreenPreview() {
-    PumPumPrototypeTheme {
-        LearningScreen(TODO())
-    }
-}

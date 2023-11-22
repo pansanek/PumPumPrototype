@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ru.potemkin.pumpumprototype.navigation.AppNavGraph
+import ru.potemkin.pumpumprototype.navigation.Screen
 import ru.potemkin.pumpumprototype.ui.theme.NavigationItem
 import ru.potemkin.pumpumprototype.ui.theme.PumPumPrototypeTheme
 import ru.potemkin.pumpumprototype.ui.theme.blue
@@ -57,7 +58,7 @@ fun MainScreen() {
             navHostController = navHostController,
             learningScreenContent = {
                 LearningScreen(
-                    TODO()
+                    onTopicClickListener = navHostController.navigate(Screen.Topic.route)
                 )
             },
             ratingScreenContent = { RatingScreen(
