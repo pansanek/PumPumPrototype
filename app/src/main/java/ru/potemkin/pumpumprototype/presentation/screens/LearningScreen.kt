@@ -3,6 +3,7 @@ package ru.potemkin.pumpumprototype.presentation.screens
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,7 +39,7 @@ import ru.potemkin.pumpumprototype.ui.theme.white
 @Composable
 fun LearningScreen(
     onTopicClickListener:() -> Unit,
-    //onVariantClickListener: (Variant) -> Unit
+    onExerciseClickListener: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -70,7 +71,7 @@ fun LearningScreen(
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
                     Button(
-                        onClick = { onTopicClickListener() },
+                        onClick = { onExerciseClickListener() },
                         colors = ButtonDefaults.buttonColors(darkBlue),
                     ) {
                         Text("Начать")
@@ -95,7 +96,7 @@ fun LearningScreen(
         LazyRow {
             items(topics.size) { topic ->
                 Log.d("TOPIC", topics[topic])
-                RowTopicItem(topics[topic])
+                RowTopicItem(topics[topic], { onTopicClickListener() })
             }
         }
         Text(
@@ -107,7 +108,7 @@ fun LearningScreen(
         )
         LazyColumn {
             items(8) { index ->
-                ColumnTopicItem("Тема ${index + 1}")
+                ColumnTopicItem("Тема ${index + 1}",{ onTopicClickListener() })
             }
         }
         // Панель навигации (оставлено пустым)
@@ -115,13 +116,14 @@ fun LearningScreen(
 }
 
 @Composable
-fun RowTopicItem(topicName: String) {
+fun RowTopicItem(topicName: String,onTopicClickListener:() -> Unit) {
     // Прямоугольник с закругленными углами
     Box(
         modifier = Modifier
             .size(128.dp, 64.dp)
             .clip(RoundedCornerShape(48.dp))
             .background(blue)
+            .clickable { onTopicClickListener() }
     ) {
         // Название темы
         Text(
@@ -136,7 +138,7 @@ fun RowTopicItem(topicName: String) {
 }
 
 @Composable
-fun ColumnTopicItem(topicName: String) {
+fun ColumnTopicItem(topicName: String,onTopicClickListener:() -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -150,6 +152,7 @@ fun ColumnTopicItem(topicName: String) {
                 .clip(RoundedCornerShape(16.dp))
                 .background(blue)
                 .weight(1f)
+                .clickable { onTopicClickListener() }
         ) {
             // Название темы
             Text(

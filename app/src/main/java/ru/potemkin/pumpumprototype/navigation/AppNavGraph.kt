@@ -12,13 +12,16 @@ fun AppNavGraph(
     learningScreenContent: @Composable () -> Unit,
     ratingScreenContent: @Composable () -> Unit,
     //profileScreenContent: @Composable () -> Unit,
-    themeScreenContent:@Composable () -> Unit,
+    topicScreenContent:@Composable () -> Unit,
+    theoryScreenContent:@Composable () -> Unit,
+    exerciseScreenContent:@Composable () -> Unit,
     ) {
         NavHost(
             navController = navHostController,
             startDestination = Screen.LearningHome.route
         ) {
-            learningHomeNavGraph(learningScreenContent, themeScreenContent)
+            learningHomeNavGraph(learningScreenContent,
+                { topicHomeNavGraph(topicScreenContent,exerciseScreenContent, theoryScreenContent) },exerciseScreenContent)
             composable(Screen.Rating.route) {
                 ratingScreenContent()
             }

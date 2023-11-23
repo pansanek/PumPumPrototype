@@ -58,13 +58,19 @@ fun MainScreen() {
             navHostController = navHostController,
             learningScreenContent = {
                 LearningScreen(
-                    onTopicClickListener = { navHostController.navigate(Screen.Topic.route) }
+                    onTopicClickListener = { navHostController.navigate(Screen.TopicHome.route) },
+                    onExerciseClickListener = { navHostController.navigate(Screen.Exercise.route) }
                 )
             },
             ratingScreenContent = { RatingScreen(
 
             )},
-            themeScreenContent = { ThemeScreen()}
+            topicScreenContent = { TopicScreen(
+                onExerciseClickListener = { navHostController.navigate(Screen.Exercise.route) },
+                onTheoryClickListener = { navHostController.navigate(Screen.Theory.route) },
+            )},
+            theoryScreenContent = {},
+            exerciseScreenContent = { ExerciseScreen()}
             //profileScreenContent = { TextCounter(name = "Profile") }
         )
     }
