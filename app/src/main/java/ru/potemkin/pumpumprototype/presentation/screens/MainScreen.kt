@@ -53,12 +53,12 @@ fun MainScreen() {
                 }
             }
         }
-    ) { paddingValues ->
+    ) {
         AppNavGraph(
             navHostController = navHostController,
             learningScreenContent = {
                 LearningScreen(
-                    onTopicClickListener = navHostController.navigate(Screen.Topic.route)
+                    onTopicClickListener = { navHostController.navigate(Screen.Topic.route) }
                 )
             },
             ratingScreenContent = { RatingScreen(

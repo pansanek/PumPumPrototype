@@ -16,7 +16,7 @@ fun NavGraphBuilder.learningHomeNavGraph(
         composable(Screen.Learning.route) {
             learningScreenContent()
         }
-        composable(Screen.Theme.route) {
+        composable(Screen.Topic.route) {
             themeScreenContent()
         }
     }

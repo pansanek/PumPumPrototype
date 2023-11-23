@@ -37,7 +37,7 @@ import ru.potemkin.pumpumprototype.ui.theme.white
 
 @Composable
 fun LearningScreen(
-    onTopicClickListener: Unit,
+    onTopicClickListener:() -> Unit,
     //onVariantClickListener: (Variant) -> Unit
 ) {
     Column(
@@ -70,7 +70,7 @@ fun LearningScreen(
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
                     Button(
-                        onClick = { onTopicClickListener },
+                        onClick = { onTopicClickListener() },
                         colors = ButtonDefaults.buttonColors(darkBlue),
                     ) {
                         Text("Начать")
