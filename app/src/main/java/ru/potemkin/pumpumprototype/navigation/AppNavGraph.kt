@@ -21,10 +21,12 @@ fun AppNavGraph(
             startDestination = Screen.LearningHome.route
         ) {
             learningHomeNavGraph(learningScreenContent,
-                { topicHomeNavGraph(topicScreenContent,exerciseScreenContent, theoryScreenContent) },exerciseScreenContent)
+               topicScreenContent,exerciseScreenContent)
             composable(Screen.Rating.route) {
                 ratingScreenContent()
             }
+            topicHomeNavGraph(topicScreenContent,exerciseScreenContent, theoryScreenContent)
+
 //            composable(Screen.Profile.route) {
 //                profileScreenContent()
 //            }
